@@ -66,10 +66,10 @@ Two optimization approaches were employed: PSO and SVD.
 The PSO algorithm was implemented using the complete set of signals and their respective angles, with only one signal being the desired one (*xs*). The parameters used for the PSO algorithm were:
 
 - **n_birds** (number of particles) = 200
-- **numero di iterazioni** = 10000
-- **peso individualità** = 1
-- **peso socialità** = 1
-- **peso dell'inerzia** = 0.9, decreasing by 0.01% with each iteration
+- **number of iterations ** = 10000
+- **individuality weight** = 1
+- **sociality weight ** = 1
+- **inertia weight** = 0.9, decreasing by 0.01% with each iteration
 
 The SVD approach involves solving the optimization problem by performing Singular Value Decomposition on the matrix A and calculating the Moore-Penrose pseudoinverse.
 
@@ -84,3 +84,7 @@ The simulation results demonstrate the radiation patterns obtained from both app
 ![res](https://github.com/fgrims/optimization_antenna/assets/102296489/8d030a1c-70b8-4f1e-baaa-122940a0dfe0)
 
 In conclusion, the project successfully implements and compares two optimization techniques for adaptive antenna beamforming, highlighting the effectiveness of the SVD approach over PSO in this context.
+
+# Authors and acknowledgment
+
+This project was developed by Aniello Di Donato and Francesco Grimaldi as part of the university courses: "Optimization Methods" and "Electromagnetic Technologies for Transmission Systems". Special thanks to Professor Adriana Brancaccio for her support throughout the project. 
