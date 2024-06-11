@@ -75,7 +75,12 @@ Il secondo approccio risolve il problema di ottimizzazione definendo la decompos
 
 Entrambi gli approcci forniscono come risultato i pesi ottimizzati e grafici che raffigurano il radiation pattern dell'antenna per tali pesi. 
 
+---
+
+## Results
+
+I risultati delle simulazioni mostrano i radiation pattern ottenuti dai due approcci. Si nota da essi che l'SVD fornisce risultati notevolmente migliori rispetto al PSO.  
 
 
 
-
+![res](https://github.com/fgrims/optimization_antenna/assets/102296489/8d030a1c-70b8-4f1e-baaa-122940a0dfe0)
