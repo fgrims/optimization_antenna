@@ -91,3 +91,15 @@ In conclusion, the project successfully implements and compares two optimization
 # Authors and acknowledgment
 
 This project was developed by Aniello Di Donato and Francesco Grimaldi as part of the university courses: "Optimization Methods" and "Electromagnetic Technologies for Transmission Systems". Special thanks to Professor Adriana Brancaccio for her support throughout the project. 
+
+# Contact Information
+
+## Francesco Grimaldi
+
+- Email: fr.grimaldi@outlook.com
+- LinkedIn: http://linkedin.com/in/francesco-grimaldi-637a5428a
+- GitHub: https://github.com/fgrims
+
+## Aniello Di Donato
+- Email: aniellodidonato4@outlook.it
+- GitHub: https://github.com/AnielloDD
