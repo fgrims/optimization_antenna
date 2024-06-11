@@ -56,7 +56,7 @@ The antenna weights were optimized by solving the following least squares optimi
  
 $$w^{\ast }=\min _{w}\left\| b-Aw\right\| _{2}$$
 
-Dove: 
+Where: 
 
 - **w*** are the optimized weights.
 - **b** is an arbitrary sparse vector with a single non-zero value at the position corresponding to the desired signal.
