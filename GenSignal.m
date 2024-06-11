@@ -9,9 +9,7 @@ array = phased.ULA('NumElements',M,'ElementSpacing',lambda/2);
 array.Element.FrequencyRange = [8e8 1.2e9]; 
 
 N = 200; % numero campioni 
-r = 8; %randi([2,10]); % numero casuale di segnali in ricezione 
-% disp("number of signals: ");
-% disp(r); 
+r = 8; %randi([2,10]); % numero casuale di segnali in ricezione  
 sig = zeros(N, r); 
 angle_of_arrival = zeros(2,r);
 for ii=1:r 
