@@ -41,4 +41,8 @@ end
 I segnali così generati vengono elaborati dall'algoritmo MUSIC. Esso calcola:
 
 - Un grafico degli autovettori dei segnali, tramite il quale è possibile identificarne il numero osservando quelli maggiori. 
-- Un grafico che presenta dei picchi in corrispondenza delle direzioni di arrivo dei segnali. 
+- Un grafico che presenta dei picchi in corrispondenza delle direzioni di arrivo dei segnali.
+
+![autovalori_MUSIC](https://github.com/fgrims/optimization_antenna/assets/102296489/75941591-f2f2-4cf0-ad27-8ecf64d238db)
+
+![PMU](https://github.com/fgrims/optimization_antenna/assets/102296489/0a65436a-9e2e-4aa9-9a0e-e6547676bf99)
