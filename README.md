@@ -37,7 +37,6 @@ disp(angle_of_arrival);
 x = collectPlaneWave(array,sig,angle_of_arrival,fc)';
 end 
 ```
----
 
 The generated signals are processed by the MUSIC algorithm, which performs the following tasks:
 
@@ -50,7 +49,7 @@ The generated signals are processed by the MUSIC algorithm, which performs the f
 <div align="center">
     <img src="https://github.com/fgrims/optimization_antenna/assets/102296489/0a65436a-9e2e-4aa9-9a0e-e6547676bf99" alt="PMU">
 </div>
----
+
 
 
 The antenna weights were optimized by solving the following least squares optimization problem:
@@ -68,9 +67,9 @@ Two optimization approaches were employed: PSO and SVD.
 The PSO algorithm was implemented using the complete set of signals and their respective angles, with only one signal being the desired one (*xs*). The parameters used for the PSO algorithm were:
 
 - **n_birds** (number of particles) = 200
-- **number of iterations ** = 10000
+- **number of iterations** = 10000
 - **individuality weight** = 1
-- **sociality weight ** = 1
+- **sociality weight** = 1
 - **inertia weight** = 0.9, decreasing by 0.01% with each iteration
 
 The SVD approach involves solving the optimization problem by performing Singular Value Decomposition on the matrix A and calculating the Moore-Penrose pseudoinverse.
