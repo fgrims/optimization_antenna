@@ -1,21 +1,21 @@
 # Direction of Arrival Estimation and Beamforming
 
-Questo è un progetto universitario in MATLAB ha come obiettivo la simulazione del comportamento di un'antenna adattiva per raggiungere due scopi: identificare le direzioni di arrivo di un incognito numero di segnali e successivamente ottimizzare la ricezione del segnale desiderato, minimizzando l'interferenza dovuta ai restanti. 
+This MATLAB-based university project aims to simulate the behavior of an adaptive antenna to achieve two primary objectives: to identify the directions of arrival of an unknown number of signals and to optimize the reception of a desired signal while minimizing interference from other signals.
 
-Per stimare il numero dei segnali e le loro direzioni di arrivo è stato implementato l'algoritmo MUSIC (MUltiple SIgnal Classification). Dalle informazioni ottenute è stato possibile applicare due approcci per l'ottimizzazione dei pesi dei singoli elementi dell'antenna adattiva ed effettuato un confronto finale dei risultati. Il primo metodo è basato sull'algoritmo di ottimizzazione collettiva PSO e il secondo sull'uso della decomposizione ai valori singolari.  
+The **MUSIC** (MUltiple SIgnal Classification) algorithm was implemented to estimate the number of signals and their directions of arrival. The information obtained enabled the application of two methods to optimize the weights of the individual elements of the adaptive antenna, followed by a comparative analysis of the results. The first method is based on the **Particle Swarm Optimization** (PSO) algorithm, while the second utilizes **Singular Value Decomposition** (SVD).
 
 ## Features
 
-- Utilizzo di un'antenna adattiva in ricezione
-- Generazione di segnali ad una data frequenza [Hz] 
-- Detection del numero di segnali e delle loro direzioni di arrivo rispetto l'antenna
-- PSO e SVD per ottimizzazione dei pesi dell'antenna 
-- Massimizzazione della ricezione di un dato segnale
-- Minimizzazione dell'interferenza dei segnali indesiderati
+- Utilization of an adaptive receiving antenna
+- Generation of signals at a specified frequency [Hz]
+- Detection of the number of signals and their directions of arrival relative to the antenna
+- PSO and SVD for optimizing the antenna weights
+- Maximization of the reception of a specified signal
+- Minimization of interference from undesired signals
 
 ## How it works 
 
-Il primo passo è la generazione dei segnali con cui effettuare le simulazioni, specificandone la frequenza in Hz. Nel codice viene specificato il numero di segnali da generare e le direazioni di arrivo (angolo in gradi tra -90° e +90°) in maniera casuale. 
+The first step involves generating signals for the simulations, specifying their frequency in Hz. The code generates the signals randomly, specifying their number and directions of arrival (angles in degrees between -90° and +90°).
 
 ```matlab
 function x = GenSignal(M, fc)
@@ -39,10 +39,10 @@ end
 ```
 ---
 
-I segnali così generati vengono elaborati dall'algoritmo MUSIC. Esso calcola:
+The generated signals are processed by the MUSIC algorithm, which performs the following tasks:
 
-- Un grafico degli autovettori dei segnali, tramite il quale è possibile identificarne il numero osservando quelli maggiori. 
-- Un grafico che presenta dei picchi in corrispondenza delle direzioni di arrivo dei segnali.
+- It produces a graph of the signal eigenvectors, allowing the identification of the number of signals by observing the prominent eigenvalues.
+- It generates a graph with peaks corresponding to the directions of arrival of the signals.
 
 ![autovalori_MUSIC](https://github.com/fgrims/optimization_antenna/assets/102296489/75941591-f2f2-4cf0-ad27-8ecf64d238db)
 
@@ -51,36 +51,36 @@ I segnali così generati vengono elaborati dall'algoritmo MUSIC. Esso calcola:
 ---
 
 
-I pesi dell'antenna sono stati progettati risolvendo il seguente problema di ottimizzazione ai minimi quadrati:
+The antenna weights were optimized by solving the following least squares optimization problem:
  
 $$w^{\ast }=\min _{w}\left\| b-Aw\right\| _{2}$$
 
 Dove: 
 
-- **w*** sono i pesi ottimizzati.
-- **b** vettore sparso arbitrario con un unico valore diverso da 0 nella posizione corrispondente al segnale desiderato.
-- **A** matrice degli steering vector.
+- **w*** are the optimized weights.
+- **b** is an arbitrary sparse vector with a single non-zero value at the position corresponding to the desired signal.
+- **A** is the matrix of steering vectors.
 
-Gli approcci usati sono: PSO e SVD. 
+Two optimization approaches were employed: PSO and SVD. 
 
-L'algoritmo PSO è stato implementato fornendo la totalità dei segnali con i relativi angoli, di cui soltanto uno rappresenta quello desiderato (xs). I parametri dell'algoritmo utilizzati:   
+The PSO algorithm was implemented using the complete set of signals and their respective angles, with only one signal being the desired one (*xs*). The parameters used for the PSO algorithm were:
 
-- **n_birds** = numero di uccelli = 200. 
-- **numero di iterazioni** = 10000. 
-- **peso individualità** = 1. 
-- **peso socialità** = 1. 
-- **peso dell'inerzia** = 0.9, con diminuzione dello 0.01% ad ogni iterazione. 
+- **n_birds** (number of particles) = 200
+- **numero di iterazioni** = 10000
+- **peso individualità** = 1
+- **peso socialità** = 1
+- **peso dell'inerzia** = 0.9, decreasing by 0.01% with each iteration
 
-Il secondo approccio risolve il problema di ottimizzazione definendo la decomposizione ai valori singolari della matrice **A** e calcolando la pseudo-inversa di Moore. 
+The SVD approach involves solving the optimization problem by performing Singular Value Decomposition on the matrix A and calculating the Moore-Penrose pseudoinverse.
 
-Entrambi gli approcci forniscono come risultato i pesi ottimizzati e grafici che raffigurano il radiation pattern dell'antenna per tali pesi. 
+Both approaches yield optimized weights and produce graphs illustrating the radiation pattern of the antenna for these weights.
 
----
 
 ## Results
 
-I risultati delle simulazioni mostrano i radiation pattern ottenuti dai due approcci. Si nota da essi che l'SVD fornisce risultati notevolmente migliori rispetto al PSO.  
-
+The simulation results demonstrate the radiation patterns obtained from both approaches. The SVD method provides significantly better results compared to the PSO method, as evidenced by the superior radiation patterns.
 
 
 ![res](https://github.com/fgrims/optimization_antenna/assets/102296489/8d030a1c-70b8-4f1e-baaa-122940a0dfe0)
+
+In conclusion, the project successfully implements and compares two optimization techniques for adaptive antenna beamforming, highlighting the effectiveness of the SVD approach over PSO in this context.
