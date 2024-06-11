@@ -44,10 +44,12 @@ The generated signals are processed by the MUSIC algorithm, which performs the f
 - It produces a graph of the signal eigenvectors, allowing the identification of the number of signals by observing the prominent eigenvalues.
 - It generates a graph with peaks corresponding to the directions of arrival of the signals.
 
+<div align="center">
 ![autovalori_MUSIC](https://github.com/fgrims/optimization_antenna/assets/102296489/75941591-f2f2-4cf0-ad27-8ecf64d238db)
-
+</div>
+<div align="center">
 ![PMU](https://github.com/fgrims/optimization_antenna/assets/102296489/0a65436a-9e2e-4aa9-9a0e-e6547676bf99)
-
+</div>
 ---
 
 
@@ -80,8 +82,9 @@ Both approaches yield optimized weights and produce graphs illustrating the radi
 
 The simulation results demonstrate the radiation patterns obtained from both approaches. The SVD method provides significantly better results compared to the PSO method, as evidenced by the superior radiation patterns.
 
-
+<div align="center">
 ![res](https://github.com/fgrims/optimization_antenna/assets/102296489/8d030a1c-70b8-4f1e-baaa-122940a0dfe0)
+</div>
 
 In conclusion, the project successfully implements and compares two optimization techniques for adaptive antenna beamforming, highlighting the effectiveness of the SVD approach over PSO in this context.
 
