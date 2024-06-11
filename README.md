@@ -37,6 +37,7 @@ disp(angle_of_arrival);
 x = collectPlaneWave(array,sig,angle_of_arrival,fc)';
 end 
 ```
+---
 
 I segnali così generati vengono elaborati dall'algoritmo MUSIC. Esso calcola:
 
@@ -46,3 +47,35 @@ I segnali così generati vengono elaborati dall'algoritmo MUSIC. Esso calcola:
 ![autovalori_MUSIC](https://github.com/fgrims/optimization_antenna/assets/102296489/75941591-f2f2-4cf0-ad27-8ecf64d238db)
 
 ![PMU](https://github.com/fgrims/optimization_antenna/assets/102296489/0a65436a-9e2e-4aa9-9a0e-e6547676bf99)
+
+---
+
+
+I pesi dell'antenna sono stati progettati risolvendo il seguente problema di ottimizzazione ai minimi quadrati:
+ 
+$$w^{\ast }=\min _{w}\left\| b-Aw\right\| _{2}$$
+
+Dove: 
+
+- **w*** sono i pesi ottimizzati.
+- **b** vettore sparso arbitrario con un unico valore diverso da 0 nella posizione corrispondente al segnale desiderato.
+- **A** matrice degli steering vector.
+
+Gli approcci usati sono: PSO e SVD. 
+
+L'algoritmo PSO è stato implementato fornendo la totalità dei segnali con i relativi angoli, di cui soltanto uno rappresenta quello desiderato (xs). I parametri dell'algoritmo utilizzati:   
+
+- **n_birds** = numero di uccelli = 200. 
+- **numero di iterazioni** = 10000. 
+- **peso individualità** = 1. 
+- **peso socialità** = 1. 
+- **peso dell'inerzia** = 0.9, con diminuzione dello 0.01% ad ogni iterazione. 
+
+Il secondo approccio risolve il problema di ottimizzazione definendo la decomposizione ai valori singolari della matrice **A** e calcolando la pseudo-inversa di Moore. 
+
+Entrambi gli approcci forniscono come risultato i pesi ottimizzati e grafici che raffigurano il radiation pattern dell'antenna per tali pesi. 
+
+
+
+
+
